@@ -1,2 +1,3 @@
 # devsummit-berlin-2015
-Debugging samples
+
+These are demonstration samples. They all will display an error.

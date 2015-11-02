@@ -1,0 +1,55 @@
+<!--
+
+Incorrectly formed KML file
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title></title>
+
+    <link rel="stylesheet" href="http://js.arcgis.com/3.14/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.14/esri/css/esri.css">
+    <style>
+        html, body { height: 100%; width: 100%; margin: 0; padding: 0; }
+        #map { height: 100%; margin: 0; padding: 0; }
+    </style>
+
+    <script src="http://js.arcgis.com/3.14/"></script>
+    <script>
+        var map;
+        require([
+            "esri/map", "esri/layers/KMLLayer", "dojo/on",
+            "dojo/domReady!"
+        ], function(
+                Map, KMLLayer,on
+        ) {
+
+            map = new Map("map", {
+                basemap: "topo",
+                center: [-108.663, 42.68],
+                zoom: 6
+            });
+
+            var kmlUrl = "https://dl.dropboxusercontent.com/u/38391979/a-bad.kml";
+
+            var kml = new KMLLayer(kmlUrl,{
+                refreshInterval:1
+            });
+
+            kml.on("error",function(evt){
+                console.log("KML ERROR " + evt.error);
+            });
+
+            map.addLayer(kml);
+        });
+    </script>
+</head>
+
+<body class="tundra">
+
+    <div id="map" />
+</body>
+</html>

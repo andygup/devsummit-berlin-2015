@@ -1,0 +1,70 @@
+<!--
+
+Reference Error: results is not defined
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Simple Map</title>
+    <link rel="stylesheet" href="http://js.arcgis.com/3.14/esri/css/esri.css">
+    <style>
+        html, body, #map {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #FFF;
+            overflow: hidden;
+            font-family: "Trebuchet MS";
+        }
+    </style>
+    <script src="http://js.arcgis.com/3.14/"></script>
+    <script>
+        var map;
+
+        require([
+            "esri/map",
+            "esri/geometry/geometryEngineAsync",
+            "esri/geometry/Point",
+            "dojo/_base/Deferred",
+            "dojo/domReady!"], function(Map, geometryEngineAsync, Point, Deferred) {
+            map = new Map("map", {
+                basemap: "topo",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
+                center: [-122.45, 37.75], // longitude, latitude
+                zoom: 13
+            });
+
+            // Property "Y" should not be an Object it should just be number!
+            var point = new Point(-114,{"Y":24});
+
+            doSomething(point).then(function(success){
+                console.log("doSomething Success! " + success.type);
+            },function(error){
+                console.log("doSomething Error: " + error);
+            });
+
+            function doSomething(point){
+                var deferred = new Deferred();
+                geometryEngineAsync.geodesicBuffer(point,1, "miles").then(function(result){
+                    defered.resolve(results);
+                }, function(error){
+                    deferred.reject(error);
+                    console.log("GeometryEngine Error: " + error);
+                });
+
+                return deferred
+            }
+
+        });
+    </script>
+</head>
+
+<body>
+<div id="map"></div>
+</body>
+</html>
