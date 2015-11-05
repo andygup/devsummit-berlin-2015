@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Source http://esri.github.io/quickstart-map-js/html/misc/show_panel.html -->
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+  <title>GeometryEngine vs GeometryService</title>
+  <link rel="shortcut icon" href="//esri.github.io/quickstart-map-js/images/favicon.ico">
+  <!-- ArcGIS API for JavaScript CSS-->
+  <link rel="stylesheet" href="//js.arcgis.com/3.14/esri/css/esri.css">
+  <!-- Web Framework CSS - Bootstrap (getbootstrap.com) and Bootstrap-map-js (github.com/esri/bootstrap-map-js) -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="//esri.github.io/bootstrap-map-js/src/css/bootstrapmap.css">
+  <style>
+    html,
+    body,
+    #mapDiv {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <!-- ArcGIS API for JavaScript library references -->
+  <script src="//js.arcgis.com/3.14compact"></script>
+  <script src="GeometryEngine-vs-GeometryService.js"></script>
+</head>
+
+<body>
+  <div class="panel panel-primary panel-fixed">
+    <div class="panel-heading">
+      <h3 class="panel-title">Show - Hide Panel</h3>
+      <button id="chevron" class="btn btn-primary btn-xs btn-absolute">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </button>
+    </div>
+    <div class="panel-body collapse in">
+      <div class="btn-toolbar">
+          <button id="btnQuery" class="btn btn-default">Query Features</button>
+      </div>
+      <div class="btn-toolbar">
+          <button id="btnBuffer" class="btn btn-default hidden">Create Buffers</button>
+      </div>
+      <br/>
+      <p class="text-left info" id="executeTimeEngine"></p>
+      <p class="text-left info" id="executeTimeService"></p>
+    </div>
+  </div>
+  <div id="mapDiv"></div>
+</body>
+
+</html>
