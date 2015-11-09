@@ -161,6 +161,7 @@ require(["esri/map",
       dom.byId("executeTimeService").innerHTML = "";
 
     }
+
     function getGeoms(graphics) {
       return graphics.map(function(item, i) {
         return item.geometry;

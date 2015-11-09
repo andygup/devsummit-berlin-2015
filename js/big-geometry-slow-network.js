@@ -52,7 +52,7 @@ require(["esri/map",
           new Color([200, 0, 200]), 2), new Color([187, 123, 0])
       );
       var numFeatures = featureSet.features.length;
-      console.log("Features :" + numFeatures)
+      console.log("Features :" + numFeatures);
       for (var i = 0; i < numFeatures; i++) {
         var graphic = featureSet.features[i];
         graphic.symbol = sfs;
