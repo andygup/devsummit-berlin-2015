@@ -1,5 +1,5 @@
 // global, to play with it in console :-)
-var map, countiesLayer;
+var map, countryLayer;
 
 require(["esri/map",
     "esri/layers/GraphicsLayer",
@@ -35,17 +35,16 @@ require(["esri/map",
       })
     });
 
-    // URL Counties : http://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/USA_Counties/FeatureServer/0
     // query result graphic layer
-    countiesLayer = new GraphicsLayer({
+    countryLayer = new GraphicsLayer({
       opacity: 0.75
     });
 
-    map.addLayers([countiesLayer]);
+    map.addLayers([countryLayer]);
 
 
-    function addToCoutiesLayer(featureSet) {
-      countiesLayer.clear();
+    function addToCoutryLayer(featureSet) {
+      countryLayer.clear();
       // make a symbol
       var sfs = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID,
         new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID,
@@ -56,7 +55,7 @@ require(["esri/map",
       for (var i = 0; i < numFeatures; i++) {
         var graphic = featureSet.features[i];
         graphic.symbol = sfs;
-        countiesLayer.add(graphic);
+        countryLayer.add(graphic);
       }
     }
 
@@ -67,14 +66,14 @@ require(["esri/map",
       var myQuery = new Query();
       //myQuery.geometry = map.extent;
       myQuery.outField = ["OBJECTID"];
-      myQuery.whereclause = "Countries like '%g'";
+      myQuery.whereclause = "Country like 'g%'";
       //  myQuery.where = "Country like 'g%' ";
       myQuery.returnGeometry = true;
       // use maxAllowableOffset for generalization
-      myQuery.maxAllowableOffset = 100;
+      //myQuery.maxAllowableOffset = 100;
 
       var queryTask = new QueryTask("http://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Countries_(Generalized)/FeatureServer/0");
-      queryTask.execute(myQuery, addToCoutiesLayer);
+      queryTask.execute(myQuery, addToCoutryLayer);
       // show them in a graphicLayer
     });
 
