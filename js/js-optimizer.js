@@ -58,12 +58,12 @@ require([
 
   var responsePoints = new FeatureLayer("http://sampleserver6.arcgisonline.com/arcgis/rest/services/Wildfire/FeatureServer/0", {
     mode: FeatureLayer.MODE_ONDEMAND,
-    outFields: ['*']
+    outFields: ["*"]
   });
 
   var responsePolys = new FeatureLayer("http://sampleserver6.arcgisonline.com/arcgis/rest/services/Wildfire/FeatureServer/2", {
     mode: FeatureLayer.MODE_ONDEMAND,
-    outFields: ['*']
+    outFields: ["*"]
   });
 
   map.addLayers([responsePolys, responsePoints]);
@@ -106,7 +106,7 @@ require([
     var params = {
       settings: settings
     };
-    var myEditor = new Editor(params, 'editorDiv');
+    var myEditor = new Editor(params, "editorDiv");
     //define snapping options
     var symbol = new SimpleMarkerSymbol(
       SimpleMarkerSymbol.STYLE_CROSS,
