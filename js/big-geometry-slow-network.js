@@ -1,4 +1,5 @@
 // global, to play with it in console :-)
+// Set maxAllowableOffset
 var map, countiesLayer;
 
 require(["esri/map",

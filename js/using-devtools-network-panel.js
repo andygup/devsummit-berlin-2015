@@ -1,4 +1,6 @@
 // global, to play with it in console :-)
+
+// Substitute whereClause with where
 var map, countryLayer;
 
 require(["esri/map",

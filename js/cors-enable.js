@@ -17,29 +17,23 @@ require(["esri/map",
     "dojo/on",
     "dojo/dom",
     "esri/config",
-     "esri/request",
+     "esri/urlUtils",
     "dojo/domReady!"
   ],
-  function(Map, GraphicsLayer, FeatureLayer, Extent, QueryTask, Query, SimpleFillSymbol, SimpleLineSymbol, Color, query, on, dom,esriConfig,esriRequest) {
+  function(Map, GraphicsLayer, FeatureLayer, Extent, QueryTask, Query, SimpleFillSymbol, SimpleLineSymbol, Color, query, on, dom,esriConfig,urlUtils) {
 
 
     // Create map
     map = new Map("mapDiv", {
       basemap: "gray",
-      extent: new Extent({
-        "type": "extent",
-        "xmin": -19166155.26931955,
-        "ymin": -3443111.900529757,
-        "xmax": 20037508.342788905,
-        "ymax": 14559337.001190286,
-        "spatialReference": {
-          "wkid": 102100,
-          "latestWkid": 3857
-        }
-      })
+      center: [-77.0164,38.9047],
+      zoom:8
     });
 
-
+    //urlUtils.addProxyRule({
+    //  urlPrefix: "sampleserver4.arcgisonline.com",
+    //  proxyUrl: "http://web.local/resource-proxy/PHP/proxy.php"
+    //});
 
     // query result graphic layer
     polygonLayer = new GraphicsLayer({
@@ -64,8 +58,6 @@ require(["esri/map",
         polygonLayer.add(graphic);
       }
     }
-
-
 
     on(dom.byId("btnQuery"), "click", function() {
       // query features
