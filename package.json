@@ -1,0 +1,30 @@
+{
+    "name": "devsummit-demos",
+    "version": "0.0.2",
+    "description": "Demos for Esri DevSummit",
+    "author": "Andy Gup <agup@esri.com> (http://blog.andygup.net)",
+    "license": "Apache 2.0",
+    "contributors": [
+        "Cedric Despierrre Corporon"
+    ],
+    "keywords": [
+        "arcgis",
+        "esri",
+        "gis",
+        "maps",
+        "mapping"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/andygup/devsummit-berlin-2015.git"
+    },
+    "readmeFilename": "README.md",
+    "dependencies": {},
+    "devDependencies": {
+        "grunt": "^0.4.5",
+        "grunt-contrib-jshint": "^0.11.1"
+    },
+    "scripts": {
+        "lint": "grunt jshint"
+    }
+}
