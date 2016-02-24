@@ -1,3 +1,5 @@
+// Uncomment proxy code
+
 // global, to play with it in console :-)
 var map, polygonLayer;
 
@@ -30,6 +32,7 @@ require(["esri/map",
       zoom:8
     });
 
+    //esriConfig.defaults.io.corsDetection = false;
     //urlUtils.addProxyRule({
     //  urlPrefix: "sampleserver4.arcgisonline.com",
     //  proxyUrl: "http://web.local/resource-proxy/PHP/proxy.php"
